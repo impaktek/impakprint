@@ -50,7 +50,6 @@ class PrinterTextParserString(
      * @return this Fluent method
      */
     override fun print(printerSocket: ImpakPrinterCommands): PrinterTextParserString {
-        Log.d("SAMPLE TEXT", "print: $text")
         printerSocket.printText(text, textSize, textColor, textReverseColor, textBold, textUnderline, textDoubleStrike)
         return this
     }

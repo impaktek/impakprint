@@ -1,9 +1,6 @@
 package com.impaktek.impakprint.parsers.text
 
-import android.util.Log
 import com.impaktek.impakprint.utils.ImpakPrinterCommands
-import java.util.logging.Logger
-import kotlin.math.log
 
 class PrinterTextParserColumn(
     val textParserLine: PrinterTextParserLine,
@@ -40,7 +37,6 @@ class PrinterTextParserColumn(
             // Image or Barcode Lines
             val openTagIndex = trimmedTextColumn.indexOf("<")
             val openTagEndIndex = trimmedTextColumn.indexOf(">", openTagIndex + 1) + 1
-            Log.d("TAG", "TAGS: ${trimmedTextColumn.substring(openTagIndex, openTagEndIndex)}")
             if (openTagIndex < openTagEndIndex) {
                 val textParserTag = PrinterTextParserTag(trimmedTextColumn.substring(openTagIndex, openTagEndIndex))
 
@@ -63,7 +59,6 @@ class PrinterTextParserColumn(
         }
 
         if (!isImgOrBarcodeLine) {
-            Log.d("TAG", ": ${tempTextColumn}")
             var offset = 0
             while (true) {
                 var openTagIndex = tempTextColumn.indexOf("<", offset)
@@ -175,7 +170,6 @@ class PrinterTextParserColumn(
             elements.forEach { textParserElement ->
                 nbrCharTextWithoutTag += textParserElement.length()
             }
-            Log.d("TAG", ": TEXT ALIGNMENT-> $textAlign")
             when (textAlign) {
                 PrinterTextParser.TAGS_ALIGN_LEFT -> rightSpace = nbrCharColumn - nbrCharTextWithoutTag
                 PrinterTextParser.TAGS_ALIGN_CENTER -> {
