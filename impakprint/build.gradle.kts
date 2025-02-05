@@ -1,10 +1,11 @@
 plugins {
-    alias(libs.plugins.android.library)
+    //alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("com.android.library")
     id("maven-publish")
 }
 
-afterEvaluate { // ✅ Ensures components["release"] exists
+/*afterEvaluate { // ✅ Ensures components["release"] exists
     publishing {
         publications {
             create<MavenPublication>("release") {
@@ -15,7 +16,9 @@ afterEvaluate { // ✅ Ensures components["release"] exists
             }
         }
     }
-}
+}*/
+
+
 
 
 
@@ -54,6 +57,21 @@ android {
         jvmTarget = "11"
     }
 }
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"]) // 👈 Use 'default' instead of 'release' if needed
+                groupId = "com.impaktek"
+                artifactId = "impakprint"
+                version = "1.0.0"
+            }
+        }
+    }
+}
+
+
 
 dependencies {
 
