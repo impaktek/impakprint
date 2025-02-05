@@ -65,7 +65,7 @@ afterEvaluate {
                 from(components["release"]) // 👈 Use 'default' instead of 'release' if needed
                 groupId = "com.impaktek"
                 artifactId = "impakprint"
-                version = "1.0.0"
+                version = "1.1.2"
             }
         }
     }
