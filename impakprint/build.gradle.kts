@@ -4,11 +4,6 @@ plugins {
     id("maven-publish")
 }
 
-
-
-
-
-
 android {
     namespace = "com.impaktek.impakprint"
     compileSdk = 35
