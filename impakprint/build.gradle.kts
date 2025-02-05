@@ -1,22 +1,9 @@
 plugins {
-    //alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     id("com.android.library")
     id("maven-publish")
 }
 
-/*afterEvaluate { // ✅ Ensures components["release"] exists
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
-                from(components["release"]) // 👈 Use 'default' instead of 'release' if needed
-                groupId = "com.impaktek"
-                artifactId = "impak-pos-print"
-                version = "1.0.0"
-            }
-        }
-    }
-}*/
 
 
 
@@ -65,7 +52,7 @@ afterEvaluate {
                 from(components["release"]) // 👈 Use 'default' instead of 'release' if needed
                 groupId = "com.impaktek"
                 artifactId = "impakprint"
-                version = "1.1.2"
+                version = "1.2.0"
             }
         }
     }
