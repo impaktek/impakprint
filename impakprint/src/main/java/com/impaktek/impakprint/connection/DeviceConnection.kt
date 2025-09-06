@@ -1,5 +1,6 @@
 package com.impaktek.impakprint.connection
 
+import android.bluetooth.BluetoothDevice
 import com.impaktek.impakprint.exceptions.ImpakConnectionException
 import java.io.IOException
 import java.io.OutputStream
@@ -14,6 +15,8 @@ abstract class DeviceConnection {
 
     @Throws(ImpakConnectionException::class)
     abstract fun connect(): DeviceConnection?
+
+    abstract fun devices(): List<BluetoothDevice>
 
     abstract fun disconnect(): DeviceConnection?
 

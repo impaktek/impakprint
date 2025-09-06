@@ -119,7 +119,9 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             Button(
                 onClick = {
                     val printer = ImpakPrinter(
-                        BluetoothPrintersConnections.selectFirstPaired(adapter),
+                        BluetoothPrintersConnections.selectFirstPaired(adapter, onError = {
+                            it.printStackTrace()
+                        }),
                         203,
                         48f,
                         32

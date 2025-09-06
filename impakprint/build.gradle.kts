@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.kotlin.android)
     id("com.android.library")
@@ -6,7 +8,7 @@ plugins {
 
 android {
     namespace = "com.impaktek.impakprint"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 27
@@ -35,8 +37,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = "17"
+    kotlin {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
+        }
     }
 }
 
@@ -47,7 +51,7 @@ afterEvaluate {
                 from(components["release"]) // 👈 Use 'default' instead of 'release' if needed
                 groupId = "com.impaktek"
                 artifactId = "impakprint"
-                version = "1.2.0"
+                version = "1.2.1"
             }
         }
     }

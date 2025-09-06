@@ -16,6 +16,7 @@ class BluetoothConnection(val device: BluetoothDevice?, bluetoothAdapter: Blueto
         private val SPP_UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb")
     }
 
+
     private var socket: BluetoothSocket? = null
 
     override val isConnected: Boolean
@@ -50,6 +51,10 @@ class BluetoothConnection(val device: BluetoothDevice?, bluetoothAdapter: Blueto
             throw ImpakConnectionException("Unable to connect to Bluetooth device.")
         }
         return this
+    }
+
+    override fun devices(): List<BluetoothDevice> {
+        TODO("Not yet implemented")
     }
 
     /**
